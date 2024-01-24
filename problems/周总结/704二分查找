@@ -1,0 +1,19 @@
+'''Java
+class Solution {
+  public int search(int[] nums, int target){
+  //定义target在左闭右闭的区间里,[left,right] 
+    int left = 0;
+    int right = nums.length - 1;//初始化right的赋值是nums.length-1,即是最后一个元素的索引，而不是nums.length
+    while(left <= right){
+      int mid = left +(right -left)/2;//防止溢出, 等同于（left+right)/2
+      if(nums[mid] == target)// target在数组中，返回下标
+      return mid;
+      else if(nums[mid] < target) //target在右区间, 即(mid+1,right)
+      left = mid+1;
+      else id(nums[mid] > target)//target在左区间,即(left,mid-1)
+      right = mid-1;
+    }
+    return -1;//未找到目标值
+  }
+}
+'''
